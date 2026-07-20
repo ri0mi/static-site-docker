@@ -1,0 +1,16 @@
+services:
+  web:
+    image: mi-sitio:v1
+    ports:
+      - "8081:80"
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - datos-mysql:/var/lib/mysql
+
+volumes:
+  datos-mysql:
+    external: true
